@@ -1,10 +1,211 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vergil Webkas</title>
-<style>body{font-family:system-ui,sans-serif;margin:0;background:#101827;color:#f8fafc;min-height:100vh;display:grid;place-items:center}.card{max-width:680px;padding:48px 28px;text-align:center}h1{font-size:clamp(2.4rem,8vw,4.5rem);margin:0 0 16px}p{color:#cbd5e1;font-size:1.1rem;line-height:1.7}.link{display:inline-block;margin-top:16px;padding:12px 20px;border-radius:10px;background:#38bdf8;color:#082f49;text-decoration:none;font-weight:700}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="Website resmi Vergil Webkas — ruang untuk karya, eksperimen, dan proyek digital.">
+  <title>Vergil Webkas — Digital Creator</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090d18;--panel:#111827;--panel2:#151f32;--text:#f4f7ff;--muted:#a6b2c8;--line:rgba(183,201,231,.14);--cyan:#67e8f9;--blue:#818cf8;--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:radial-gradient(ellipse at 75% 0%,rgba(79,70,229,.18),transparent 35%),radial-gradient(ellipse at 0% 35%,rgba(8,145,178,.10),transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button,a{-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav-wrap{position:sticky;top:0;z-index:10;background:rgba(9,13,24,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#08111d;font-weight:950}
+    .nav-links{display:flex;align-items:center;gap:27px;color:var(--muted);font-size:.92rem}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:11px 16px;font-weight:750;font-size:.92rem;transition:transform .2s,border-color .2s,background .2s}
+    .nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:rgba(103,232,249,.6)}
+    .button.primary{background:linear-gradient(120deg,var(--cyan),#a5b4fc);border:0;color:#07111c}
+    .menu-toggle{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:1.15rem}
+    .hero{padding:94px 0 82px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:64px;min-height:590px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(103,232,249,.22);border-radius:99px;padding:7px 12px;color:#baf7ff;background:rgba(8,145,178,.09);font-size:.82rem;font-weight:700}
+    .pulse{width:7px;height:7px;border-radius:50%;background:#67e8a5;box-shadow:0 0 0 5px rgba(103,232,165,.12)}
+    h1{font-size:clamp(3.1rem,7vw,5.8rem);line-height:.99;letter-spacing:-.075em;margin:25px 0 22px;max-width:740px}
+    .gradient-text{background:linear-gradient(100deg,#f4f7ff 8%,var(--cyan) 52%,#a5b4fc 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:600px;color:var(--muted);font-size:1.1rem;line-height:1.85;margin:0 0 30px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-note{margin-top:25px;color:#7888a3;font-size:.85rem}
+    .visual{position:relative;min-height:380px;display:grid;place-items:center}
+    .orbit{position:absolute;width:310px;height:310px;border:1px solid rgba(129,140,248,.26);border-radius:50%;box-shadow:0 0 70px rgba(99,102,241,.12),inset 0 0 60px rgba(103,232,249,.04)}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(103,232,249,.17);border-radius:50%;inset:27px}
+    .orbit:after{inset:58px;border-color:rgba(129,140,248,.24)}
+    .orb-dot{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 25px var(--cyan);top:37px;right:49px}
+    .code-card{position:relative;z-index:1;width:min(100%,350px);border:1px solid rgba(190,207,237,.18);border-radius:20px;overflow:hidden;background:rgba(17,24,39,.91);box-shadow:0 25px 90px rgba(0,0,0,.38);transform:rotate(-3deg)}
+    .code-top{display:flex;align-items:center;gap:7px;padding:15px 17px;border-bottom:1px solid var(--line);color:#8e9cb5;font-size:.8rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:#fb7185}.dot:nth-child(2){background:#fbbf24}.dot:nth-child(3){background:#6ee7b7}
+    .code-body{padding:24px 22px 27px;font: .9rem/2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#cbd5e1}
+    .code-body .key{color:#67e8f9}.code-body .value{color:#c4b5fd}.code-body .comment{color:#71829d}
+    section{padding:74px 0}
+    .section-head{max-width:650px;margin-bottom:30px}
+    .kicker{color:var(--cyan);font-size:.78rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    h2{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.055em;line-height:1.1;margin:12px 0 14px}
+    .section-desc{color:var(--muted);margin:0;font-size:1.02rem;line-height:1.8}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+    .panel{border:1px solid var(--line);background:linear-gradient(145deg,rgba(21,31,50,.88),rgba(13,19,32,.88));border-radius:20px;padding:27px}
+    .about-mark{font-size:2.7rem;margin-bottom:16px}
+    .panel h3{font-size:1.15rem;margin:0 0 10px;letter-spacing:-.02em}
+    .panel p{margin:0;color:var(--muted);line-height:1.8}
+    .values{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .value{padding:17px;border:1px solid var(--line);border-radius:14px;background:rgba(9,13,24,.32)}
+    .value strong{display:block;margin-bottom:5px}
+    .value span{font-size:.9rem;color:var(--muted)}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .project{padding:24px;min-height:225px;display:flex;flex-direction:column;align-items:flex-start}
+    .project-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:rgba(103,232,249,.1);border:1px solid rgba(103,232,249,.18);font-size:1.25rem;margin-bottom:22px}
+    .project p{font-size:.94rem;margin-bottom:22px}
+    .tag{margin-top:auto;color:#baf7ff;font-size:.76rem;border:1px solid rgba(103,232,249,.2);background:rgba(8,145,178,.08);padding:5px 9px;border-radius:99px}
+    .contact-box{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:clamp(25px,5vw,48px);border-radius:24px;border:1px solid rgba(103,232,249,.22);background:radial-gradient(ellipse at 100% 0%,rgba(99,102,241,.2),transparent 45%),linear-gradient(135deg,rgba(17,24,39,.98),rgba(13,23,39,.95))}
+    .contact-box h2{max-width:600px;margin-top:8px}
+    .contact-box p{color:var(--muted);max-width:570px;margin-bottom:0}
+    footer{padding:26px 0 34px;border-top:1px solid var(--line);color:#8795ad;font-size:.86rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px}
+    .footer-links{display:flex;gap:18px}.footer-links a:hover{color:var(--cyan)}
+    .reveal{animation:rise .75s both}.delay{animation-delay:.12s}.delay2{animation-delay:.22s}
+    @keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:25px;padding:72px 0 55px;min-height:unset}.visual{min-height:340px}.orbit{width:270px;height:270px}.about-grid{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr 1fr}.contact-box{align-items:flex-start;flex-direction:column}.nav-links{gap:16px}}
+    @media(max-width:600px){.wrap{width:min(var(--max),calc(100% - 30px))}nav{height:67px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:18px 22px 22px;background:#0c1220;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 4px}.hero{padding-top:58px}h1{font-size:clamp(3rem,14vw,4.3rem)}.hero-copy{font-size:1rem}.visual{min-height:300px}.orbit{width:240px;height:240px}.code-card{width:min(100%,320px)}section{padding:56px 0}.project-grid{grid-template-columns:1fr}.project{min-height:190px}.values{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}.actions .button{width:100%}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
 </head>
-<body><main class="card"><h1>Vergil Webkas</h1><p>Selamat datang di website saya. Situs ini sedang dikembangkan.</p><a class="link" href="https://github.com/vergilwebkas00-arch">Lihat GitHub</a></main></body>
+<body>
+  <div class="nav-wrap">
+    <nav class="wrap" aria-label="Navigasi utama">
+      <a class="brand" href="#home" aria-label="Vergil Webkas, halaman utama"><span class="brand-mark">V</span><span>vergil<span style="color:var(--cyan)">webkas</span></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Buka menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#tentang">Tentang</a><a href="#fokus">Fokus</a><a href="#proyek">Proyek</a><a href="#kontak">Kontak</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/vergilwebkas00-arch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+  </div>
+
+  <main>
+    <header class="wrap hero" id="home">
+      <div class="reveal">
+        <div class="eyebrow"><span class="pulse"></span> Ruang digital Vergil Webkas</div>
+        <h1>Membangun ide<br>menjadi <span class="gradient-text">digital.</span></h1>
+        <p class="hero-copy">Selamat datang di ruang digital saya. Di sini, ide, eksperimen, dan proyek web dikembangkan satu langkah demi satu langkah — dengan fokus pada tampilan yang rapi, pengalaman yang nyaman, dan hasil yang terus berkembang.</p>
+        <div class="actions">
+          <a class="button primary" href="#proyek">Jelajahi proyek <span aria-hidden="true">↘</span></a>
+          <a class="button" href="https://github.com/vergilwebkas00-arch" target="_blank" rel="noopener noreferrer">Lihat GitHub ↗</a>
+        </div>
+        <p class="hero-note">Dibuat dengan HTML, CSS, dan JavaScript.</p>
+      </div>
+      <div class="visual reveal delay" aria-label="Ilustrasi kode website">
+        <div class="orbit"><span class="orb-dot"></span></div>
+        <div class="code-card">
+          <div class="code-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:auto">welcome.html</span></div>
+          <div class="code-body">
+            <div><span class="comment">&lt;!-- ide menjadi nyata --&gt;</span></div>
+            <div><span class="key">const</span> creator = <span class="value">"Vergil"</span>;</div>
+            <div><span class="key">const</span> vision = <span class="value">"Build & learn"</span>;</div>
+            <div style="height:10px"></div>
+            <div><span class="key">function</span> <span class="value">createFuture</span>() {</div>
+            <div style="padding-left:18px">keepBuilding();</div>
+            <div style="padding-left:18px">keepLearning();</div>
+            <div>}</div>
+            <div class="comment">// terus berkembang ✦</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="tentang">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">01 / Tentang</span>
+          <h2>Mulai dari ide,<br>bertumbuh lewat proses.</h2>
+          <p class="section-desc">Website ini menjadi titik awal untuk memperkenalkan identitas digital Vergil Webkas dan mengumpulkan karya yang sedang maupun akan dikembangkan.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <div class="about-mark">✳</div>
+            <h3>Halo, saya Vergil.</h3>
+            <p>Saya sedang membangun ruang digital pribadi yang bisa terus dikembangkan. Halaman ini dirancang sebagai fondasi portofolio — sederhana, responsif, dan siap ditambah dengan proyek nyata.</p>
+          </article>
+          <div class="panel">
+            <h3>Prinsip yang dibawa</h3>
+            <div class="values">
+              <div class="value"><strong>✦ Bertumbuh</strong><span>Belajar melalui proses dan eksperimen.</span></div>
+              <div class="value"><strong>⌘ Fungsional</strong><span>Desain yang jelas dan mudah digunakan.</span></div>
+              <div class="value"><strong>◈ Konsisten</strong><span>Menyempurnakan detail sedikit demi sedikit.</span></div>
+              <div class="value"><strong>↗ Terbuka</strong><span>Mengembangkan ide menjadi karya nyata.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fokus">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">02 / Fokus</span>
+          <h2>Fondasi untuk karya berikutnya.</h2>
+          <p class="section-desc">Bagian yang sedang disiapkan untuk membantu proyek berkembang dengan arah yang jelas.</p>
+        </div>
+        <div class="project-grid">
+          <article class="panel project"><div class="project-icon">⌘</div><h3>Web development</h3><p>Membangun halaman web yang responsif dengan struktur sederhana dan mudah dirawat.</p><span class="tag">HTML · CSS · JS</span></article>
+          <article class="panel project"><div class="project-icon">✳</div><h3>UI & pengalaman</h3><p>Menata visual, navigasi, dan detail interaksi agar nyaman digunakan di berbagai layar.</p><span class="tag">Design · UX</span></article>
+          <article class="panel project"><div class="project-icon">↗</div><h3>Eksperimen digital</h3><p>Menguji ide baru dan mengubahnya menjadi proyek yang bisa dilihat dan dikembangkan.</p><span class="tag">Build · Learn</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyek">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">03 / Proyek</span>
+          <h2>Perjalanan baru dimulai.</h2>
+          <p class="section-desc">Website ini adalah proyek pertama yang sedang dibangun. Daftar ini akan diperbarui saat proyek berikutnya siap ditampilkan.</p>
+        </div>
+        <div class="project-grid">
+          <article class="panel project"><div class="project-icon">🌐</div><h3>Vergil Webkas Website</h3><p>Website personal dengan desain responsif, navigasi ringkas, dan halaman pengenalan.</p><span class="tag">Sedang dikembangkan</span></article>
+          <article class="panel project"><div class="project-icon">⌁</div><h3>Proyek berikutnya</h3><p>Ruang untuk aplikasi, eksperimen, atau karya digital yang akan datang.</p><span class="tag">Segera hadir</span></article>
+          <article class="panel project"><div class="project-icon">✧</div><h3>Catatan perkembangan</h3><p>Tempat untuk membagikan pembaruan dan hal-hal baru yang sedang dipelajari.</p><span class="tag">Dalam rencana</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="wrap">
+        <div class="contact-box">
+          <div><span class="kicker">04 / Kontak</span><h2>Terhubung lewat GitHub.</h2><p>Ikuti perkembangan proyek dan lihat kode yang tersedia melalui profil GitHub saya.</p></div>
+          <a class="button primary" href="https://github.com/vergilwebkas00-arch" target="_blank" rel="noopener noreferrer">Kunjungi GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Vergil Webkas. Dibangun dengan niat untuk terus berkembang.</span>
+      <div class="footer-links"><a href="#home">Kembali ke atas ↑</a><a href="https://github.com/vergilwebkas00-arch" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+    </div>
+  </footer>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+      menuToggle.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Buka menu');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
